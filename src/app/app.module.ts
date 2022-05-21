@@ -12,6 +12,8 @@ import { CoreModule } from './core/core.module';
 import { LayoutModule } from './presentation/layout/layout.module';
 import { appEffects, appReducer } from './domain/store';
 import { EffectsModule } from '@ngrx/effects';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppInterceptorService } from './core/interceptors/app.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,13 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument({ maxAge: 30}),
     EffectsModule.forRoot(appEffects)
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
