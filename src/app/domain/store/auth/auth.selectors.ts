@@ -1,11 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { RootState } from '..';
 import { AuthState } from './auth.state';
-/*
-export interface AuthFeatureState {
-  feature: AuthState;
-}
-*/
 
 export const selectAuthFeatureState = (state: RootState) => state.auth;
 

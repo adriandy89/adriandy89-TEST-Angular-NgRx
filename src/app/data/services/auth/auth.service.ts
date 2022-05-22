@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILogin, IUserResponse } from 'src/app/core/models/auth.model';
+import { ILogin, ILoginResponse } from 'src/app/core/models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,9 @@ import { ILogin, IUserResponse } from 'src/app/core/models/auth.model';
 export class AuthService {
   constructor(private _http: HttpClient) {}
 
-  login(data: ILogin): Observable<IUserResponse> {
+  login(data: ILogin): Observable<ILoginResponse> {
     console.log(data);
     console.log('logueando a la API');
-    return this._http.post<IUserResponse>('auth/login', data);
+    return this._http.post<ILoginResponse>('auth/login', data);
   }
 }

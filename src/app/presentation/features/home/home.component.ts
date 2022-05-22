@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IUser } from 'src/app/core/models/user.model';
+import { UserFacade } from 'src/app/facades/user.facade';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  userData$: Observable<IUser | null>;
+
+  constructor(private _userFacade: UserFacade) {
+    this.userData$= this._userFacade.userData$
+   }
 
   ngOnInit(): void {
+    this._userFacade.getUserList()
   }
 
 }

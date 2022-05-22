@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { ILogin, IUser } from "src/app/core/models/auth.model";
+import { ILogin } from "src/app/core/models/auth.model";
+import { IUser } from "src/app/core/models/user.model";
 
 export const loginAction = createAction(
     '[Auth] LoginAction',
@@ -7,8 +8,7 @@ export const loginAction = createAction(
 );
 
 export const loginSuccessAction = createAction(
-    '[Auth] LoginSuccessAction',
-    props<{ data: IUser}>()
+    '[Auth] LoginSuccessAction'
 );
 
 export const loginErrorAction = createAction(

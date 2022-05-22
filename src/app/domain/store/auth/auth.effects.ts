@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as authActions from './auth.actions';
+import * as userActions from '../user/user.actions';
 import { catchError, exhaustMap, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/data/services/auth/auth.service';
@@ -23,7 +24,8 @@ export class AuthEffects {
           map((response) => {
             console.log(response)
             localStorage.setItem('sales.token', response.token);
-            return authActions.loginSuccessAction({data: response.user});
+           // return authActions.loginSuccessAction({data: response.user});
+            return userActions.userLoginSuccessAction({data: response.user});
           }),
           catchError((error: ErrorAPIResponse) =>
             of(

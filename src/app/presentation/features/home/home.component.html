@@ -1,1 +1,9 @@
+
+<ng-container *ngIf="userData$ | async as userData; else template">
+    <p>Bienvenido {{ userData.nombre }}</p>
+  </ng-container>
+  <ng-template #template>
+    <p>Bienvenido ...</p>
+  </ng-template>
 <p>home works!</p>
+
