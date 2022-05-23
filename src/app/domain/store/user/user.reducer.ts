@@ -7,11 +7,23 @@ export const initialUserState: UserState = {
   users: null,
   selectedID: null,
   isLoading: false,
-  isError: null
+  isError: null,
+  isMessage: null
 };
 
 export const userReducer = createReducer(
     initialUserState,
+    on(userActions.userInitialStateAction, (state) => {
+      return {
+        ...state,
+        userData: null,
+        users: null,
+        selectedID: null,
+        isLoading: false,
+        isError: null,
+        isMessage: null
+      };
+    }),
   on(userActions.userLoginSuccessAction, (state, { data }) => {
     return {
       ...state,
@@ -25,7 +37,7 @@ export const userReducer = createReducer(
       isLoading: true,
       isError: null
     };
-  }),
+  }),  
   on(userActions.userUpdateAction, (state, { data }) => {
     return {
       ...state,
@@ -57,11 +69,12 @@ export const userReducer = createReducer(
       isError: null
     };
   }),
-  on(userActions.userOperationSuccessAction, (state) => {
+  on(userActions.userOperationSuccessAction, (state, { message }) => {
     return {
       ...state,
       isLoading: false,
-      isError: null
+      isError: null,
+      isMessage: message
     };
   }),
   on(userActions.userErrorAction, (state, { message }) => {
@@ -69,6 +82,7 @@ export const userReducer = createReducer(
       ...state,
       isError: message,
       isLoading: false,
+      isMessage: null,
     };
   })
 );

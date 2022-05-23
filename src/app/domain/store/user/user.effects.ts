@@ -49,4 +49,26 @@ export class UserEffects {
     )
   );
 
+  userCreateNew$ = createEffect(() =>    
+      this.actions$.pipe(
+        ofType(userActions.userCreateNewAction),
+        exhaustMap((action) =>
+        this._userService.newUser(action.data).pipe(
+          map((response) => {
+            console.log(response)
+           // return authActions.loginSuccessAction({data: response.user});
+            return userActions.userOperationSuccessAction({message: response.message});
+          }),
+          catchError((error: ErrorAPIResponse) =>
+            of(
+              userActions.userErrorAction({
+                message: error.error,
+              })
+            )
+          )
+        )
+      )
+    )
+  );
+
 }

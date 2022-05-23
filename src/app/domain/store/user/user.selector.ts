@@ -24,6 +24,11 @@ export const selectIsLoadingUser = createSelector(
   (state: UserState) => state.isLoading
 );
 
+export const selectIsMessageUser = createSelector(
+  selectUserFeatureState,
+  (state: UserState) => state.isMessage
+);
+
 export const selectIsErrorUser = createSelector(
   selectUserFeatureState,
   (state: UserState) => state.isError

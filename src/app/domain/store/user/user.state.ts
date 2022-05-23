@@ -6,5 +6,6 @@ export interface UserState {
     selectedID: string | null;
     isLoading: boolean;
     isError: string | null;
+    isMessage: string | null;
   }
   

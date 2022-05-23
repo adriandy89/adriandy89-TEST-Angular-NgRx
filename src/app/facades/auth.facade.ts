@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import {
-  loginAction,
-  loginErrorAction,
-} from '../domain/store/auth/auth.actions';
+import { loginAction } from '../domain/store/auth/auth.actions';
 import * as authSelectors from '../domain/store/auth/auth.selectors';
 import { ILogin } from '../core/models/auth.model';
 import { RootState } from '../domain/store';
@@ -23,8 +20,5 @@ export class AuthFacade {
 
   login(data: ILogin) {
     this._store.dispatch(loginAction({ data }));
-  }
-  setErrorLogin(message: string) {
-    this._store.dispatch(loginErrorAction({ message }));
   }
 }
