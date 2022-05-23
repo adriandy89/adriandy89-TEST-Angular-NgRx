@@ -1,8 +1,15 @@
-# Arquitectura
+# Angular+NgRx
+
+## Inicio
+1- Instalar node.js
+2- Instalar Angular CLI
+3- Abrir el Proyecto y seguir los pasos descritos abajo.
+
+## Arquitectura
 
 ![Screenshot](Arquitectura.jpg)
 
-# App
+## App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
