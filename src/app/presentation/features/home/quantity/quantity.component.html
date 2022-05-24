@@ -1,0 +1,10 @@
+<div class="d-flex" >
+    <button class="btn btn-success me-1" [disabled]="!item?.orders?.count" (click)="decrement()">
+      -
+    </button>
+    <input type="text" class="form-control w-25" [value]="item?.orders?.count || 0" >
+    <button class="btn btn-success ms-1"  (click)="increment()">
+      +
+    </button>
+  </div>
+  

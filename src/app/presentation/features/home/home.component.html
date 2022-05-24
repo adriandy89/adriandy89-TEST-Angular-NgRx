@@ -1,9 +1,19 @@
-
 <ng-container *ngIf="userData$ | async as userData; else template">
-    <p>Bienvenido {{ userData.nombre }}</p>
-  </ng-container>
-  <ng-template #template>
-    <p>Bienvenido ...</p>
-  </ng-template>
-<p>home works!</p>
-
+  <p>Bienvenido {{ userData.nombre }}</p>
+</ng-container>
+<ng-template #template>
+  <p>Bienvenido ...</p>
+</ng-template>
+<br>
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products$ | async">
+        <app-product-item [data-product]="product"></app-product-item>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <app-subtotal></app-subtotal>
+  </div>
+</div>

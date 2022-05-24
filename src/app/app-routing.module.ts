@@ -10,6 +10,9 @@ const routes: Routes = [{
   canActivate: [LoggedGuard],  
   children: [
     {
+      path: '', redirectTo: 'home', pathMatch: 'full'
+    },
+    {
       path: 'home', loadChildren: () => import('./presentation/features/home/home.module').then((m) => m.HomeModule)
     }
   ]
@@ -25,6 +28,9 @@ const routes: Routes = [{
       path: 'signup', loadChildren: () => import('./presentation/features/auth/signup/signup.module').then((m) => m.SignupModule)
     }
   ]
+},
+{
+  path: '**', redirectTo: '', pathMatch: 'full'
 }
 ];
 
