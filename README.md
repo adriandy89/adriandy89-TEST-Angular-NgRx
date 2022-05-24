@@ -2,8 +2,12 @@
 
 ## Inicio
 1- Instalar node.js
+
 2- Instalar Angular CLI
+
 3- Abrir el Proyecto y seguir los pasos descritos abajo.
+
+(SE NECESITA INTERNET PARA CARGAR LOS ESTILOS Bootstrap --> esta aplicacion es de Prueba)
 
 ## Arquitectura
 
