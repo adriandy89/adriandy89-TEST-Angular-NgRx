@@ -11,7 +11,10 @@ export class HomeFacade {
   products$: Observable<Product[]>
 
   constructor(private readonly _store: Store<RootState>) {
-    this._store.dispatch(loadProduct());
     this.products$ = this._store.select(homeSelectors.selectProducts);
+  }
+
+  loadProduct(){
+    this._store.dispatch(loadProduct());
   }
 }

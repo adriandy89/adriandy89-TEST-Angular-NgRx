@@ -10,7 +10,6 @@ export class AuthService {
   constructor(private _http: HttpClient) {}
 
   login(data: ILogin): Observable<ILoginResponse> {
-    console.log(data);
     console.log('logueando a la API');
     return this._http.post<ILoginResponse>('auth/login', data);
   }

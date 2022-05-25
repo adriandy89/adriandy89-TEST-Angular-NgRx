@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._userFacade.getUserList()
+    this._homeFacade.loadProduct()
   }
 
 }

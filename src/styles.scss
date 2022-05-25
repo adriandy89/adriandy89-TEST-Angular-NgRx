@@ -4,7 +4,7 @@
     --secondary-color: #faa6ff;
     --tertiary-color: #7353ba;
   }
-  
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
       Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -37,3 +37,182 @@
     box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
     word-wrap: break-word;
   }
+
+  /* Add application styles & imports to this file! */
+
+// NOTIFIER: CORE STYLES
+
+// Container
+
+.notifier {
+  &__container {
+    * {
+      box-sizing: border-box;
+    }
+
+    &-list {
+      margin: {
+        top: 0;
+        bottom: 0;
+      }
+      padding: {
+        left: 0;
+      }
+      list-style-type: none;
+    }
+  }
+
+  &__notification {
+    display: flex;
+    align-items: center;
+    position: fixed; // Overlay
+    visibility: hidden; // Notifications are hidden by default, and get shown (or animated in) dynamically by the Angular component
+    z-index: 10000; // Pretty much random ...
+
+    // This attribute forces this element to be rendered on a new layer, by the GPU, in order to improve its performance (#perfmatters)
+    will-change: transform;
+
+    // This attribute improves the overall scrolling performance for fixed position elements, such as this one (#perfmatters)
+    // See <https://benfrain.com/improving-css-performance-fixed-position-elements/>
+    backface-visibility: hidden;
+  }
+}
+// NOTIFIER: MATERIAL THEME
+//
+// This material theme tries its best to look as material-design'ish as possible - round edges, shadows, and small animations.
+// And, of course, thanks to #Google for creating and sharing such an awesome design language!
+// I highly encourage everyone to read into the Material Design specs: <https://material.google.com/>
+
+$notifier-shadow-color: rgba(0, 0, 0, 0.2) !default;
+
+.notifier__notification--material {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px $notifier-shadow-color;
+  cursor: default; // Default cursor, even when hovering over text
+  padding: {
+    top: 11px;
+    right: 26px;
+    bottom: 10px;
+    left: 26px;
+  }
+
+  .notifier__notification {
+    &-message {
+      display: inline-block;
+      margin: {
+        // Reset paragraph default styles
+        top: 0;
+        bottom: 0;
+      }
+      vertical-align: top;
+      line-height: 32px;
+      font-size: 15px;
+    }
+
+    &-button {
+      display: inline-block;
+      transition: opacity 0.2s ease;
+      opacity: 0.5;
+      margin: {
+        right: -10px;
+        left: 10px;
+      }
+      outline: none;
+      border: none;
+      background: none;
+      cursor: pointer; // Make it obvious that the "button" (or, more honestly, icon) is clickable (#UX)
+      padding: 6px;
+      width: 32px;
+      height: 32px;
+      vertical-align: top;
+
+      &:hover,
+      &:focus {
+        opacity: 1; // Make me "feel" the clickability with a transparency change (#UX)
+      }
+
+      &:active {
+        transform: scale(0.82); // Make me "feel" the click by a push back (#UX)
+        opacity: 1;
+      }
+    }
+  }
+}
+// NOTIFIER: DEFAULT TYPE STYLES
+
+$notifier-default-background-color: #444 !default;
+$notifier-default-font-color: #fff !default;
+$notifier-default-icon-color: #fff !default;
+
+.notifier__notification--default {
+  background-color: $notifier-default-background-color;
+  color: $notifier-default-font-color;
+
+  .notifier__notification-button-icon {
+    // 16x16 fixed size
+    fill: $notifier-default-icon-color;
+  }
+}
+// NOTIFIER: ERROR TYPE STYLES
+
+$notifier-error-background-color: #d9534f !default;
+$notifier-error-font-color: #fff !default;
+$notifier-error-icon-color: #fff !default;
+
+.notifier__notification--error {
+  background-color: $notifier-error-background-color;
+  color: $notifier-error-font-color;
+
+  .notifier__notification-button-icon {
+    // 16x16 fixed size
+    fill: $notifier-error-icon-color;
+  }
+}
+
+// NOTIFIER: INFO TYPE STYLES
+
+$notifier-info-background-color: #5bc0de !default;
+$notifier-info-font-color: #fff !default;
+$notifier-info-icon-color: #fff !default;
+
+.notifier__notification--info {
+  background-color: $notifier-info-background-color;
+  color: $notifier-info-font-color;
+
+  .notifier__notification-button-icon {
+    // 16x16 fixed size
+    fill: $notifier-info-icon-color;
+  }
+}
+
+// NOTIFIER: SUCCESS TYPE STYLES
+
+$notifier-success-background-color: #5cb85c !default;
+$notifier-success-font-color: #fff !default;
+$notifier-success-icon-color: #fff !default;
+
+.notifier__notification--success {
+  background-color: $notifier-success-background-color;
+  color: $notifier-success-font-color;
+
+  .notifier__notification-button-icon {
+    // 16x16 fixed size
+    fill: $notifier-success-icon-color;
+  }
+}
+// NOTIFIER: WARNING TYPE STYLES
+
+$notifier-warning-background-color: #f0ad4e !default;
+$notifier-warning-font-color: #fff !default;
+$notifier-warning-icon-color: #fff !default;
+
+.notifier__notification--warning {
+  background-color: $notifier-warning-background-color;
+  color: $notifier-warning-font-color;
+
+  .notifier__notification-button-icon {
+    // 16x16 fixed size
+    fill: $notifier-warning-icon-color;
+  }
+}
+

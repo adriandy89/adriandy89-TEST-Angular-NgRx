@@ -23,6 +23,7 @@
     "@ngrx/effects": "^13.2.0",
     "@ngrx/store": "^13.2.0",
     "@ngrx/store-devtools": "^13.2.0",
+    "angular-notifier": "^11.0.0",
     "bulma": "^0.9.4",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
