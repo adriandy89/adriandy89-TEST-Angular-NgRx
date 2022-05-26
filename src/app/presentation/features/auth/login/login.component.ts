@@ -24,11 +24,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmitForm() {
-    if (this.loginForm.invalid) {
+    if (this.loginForm.invalid) { // Revisar esta parte, cuando le damos al boton acceder y el formulario es invalido, solo se imprime en consola, no se muestran los mensajes de error debajo de los controles
       console.log('error invalid form');
       return;
     }
-    const data: ILogin = { ...this.loginForm.value };
+    const data: ILogin = { ...this.loginForm.value }; // Por qué usar spread operator aquí, cual fue el propósito?
     this._authFacade.login(data);
   }
 

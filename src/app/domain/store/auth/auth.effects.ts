@@ -25,7 +25,7 @@ export class AuthEffects {
             console.log(response)
             localStorage.setItem('sales.token', response.token);
            // return authActions.loginSuccessAction({data: response.user});
-            return userActions.userLoginSuccessAction({data: response.user});
+            return userActions.userLoginSuccessAction({data: response.user}); // Por que llamar a una accion de la entidad usuario que lo que hace es llamar a la accion loginSuccessAction
           }),
           catchError((error: ErrorAPIResponse) =>
             of(
