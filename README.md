@@ -1,5 +1,7 @@
 # Angular+NgRx
 
+![Screenshot](AngularApp.jpg)
+
 ## Inicio
 1- Instalar node.js
 
