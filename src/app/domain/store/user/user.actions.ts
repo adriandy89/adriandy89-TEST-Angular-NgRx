@@ -15,6 +15,10 @@ export const userCreateNewAction = createAction(
     props<{ data: IUser}>()
 );
 
+export const userCreateNewSuccesAction = createAction(
+  '[User] userCreateNewSuccesAction'
+);
+
 export const userUpdateAction = createAction(
     '[User] userUpdateAction',
     props<{ data: IUser}>()

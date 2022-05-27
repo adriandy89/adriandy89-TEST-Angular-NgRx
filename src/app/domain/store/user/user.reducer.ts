@@ -37,7 +37,14 @@ export const userReducer = createReducer(
       isLoading: true,
       isError: null
     };
-  }),  
+  }),
+  on(userActions.userCreateNewSuccesAction, (state) => {
+    return {
+      ...state,
+      isLoading: false,
+      isError: null,
+    };
+  }),
   on(userActions.userUpdateAction, (state, { data }) => {
     return {
       ...state,

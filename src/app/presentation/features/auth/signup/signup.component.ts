@@ -31,11 +31,9 @@ export class SignupComponent implements OnInit {
 
   onSubmitForm() {
     if (this.newUserForm.invalid) {
-      console.log('error invalid form');
       return;
     }
-    const data: IUser = { ...this.newUserForm.value };
-    this._userFacade.newUser(data);
+    this._userFacade.newUser(<IUser>this.newUserForm.value);
   }
 
   private _initForm() {

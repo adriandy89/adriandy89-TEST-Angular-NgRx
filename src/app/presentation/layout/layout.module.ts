@@ -7,7 +7,6 @@ import { LogoComponent } from './components/logo/logo.component';
 import { BaseLoggedComponent } from './base-logged/base-logged.component';
 import { BaseAuthComponent } from './base-auth/base-auth.component';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -22,8 +21,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    SharedModule
+    RouterModule
   ]
 })
 export class LayoutModule { }

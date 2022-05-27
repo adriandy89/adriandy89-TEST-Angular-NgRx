@@ -13,11 +13,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loadingLogin$: Observable<boolean>;
-  loginError$: Observable<string | null>;
 
   constructor(private _fb: FormBuilder, private _authFacade: AuthFacade) {
     this.loadingLogin$ = this._authFacade.isLoading$;
-    this.loginError$ = this._authFacade.isError$;
     this.loginForm = this._initForm();
   }
 
@@ -25,11 +23,9 @@ export class LoginComponent implements OnInit {
 
   onSubmitForm() {
     if (this.loginForm.invalid) {
-      console.log('error invalid form');
       return;
     }
-    const data: ILogin = { ...this.loginForm.value };
-    this._authFacade.login(data);
+    this._authFacade.login(<ILogin>this.loginForm.value);
   }
 
   private _initForm() {

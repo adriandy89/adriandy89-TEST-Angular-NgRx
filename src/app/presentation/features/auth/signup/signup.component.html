@@ -1,4 +1,5 @@
-<div class="form">
+<mat-card class="signup">
+  <div class="form">
     <div class="form__header">
       <h2>Bienvenido!</h2>
       <p>Registrar Nueva Cuenta</p>
@@ -8,81 +9,46 @@
         <div class="field">
           <label class="label" for="nombre">Nombre</label>
           <div class="control">
-            <input
-              type="text"
-              name="nombre"
-              class="input"
-              formControlName="nombre"
-            />
+            <input type="text" name="nombre" class="input" formControlName="nombre" />
           </div>
         </div>
         <div class="field">
-            <label class="label" for="apellido">Apellido</label>
-            <div class="control">
-              <input
-                type="text"
-                name="apellido"
-                class="input"
-                formControlName="apellido"
-              />
-            </div>
+          <label class="label" for="apellido">Apellido</label>
+          <div class="control">
+            <input type="text" name="apellido" class="input" formControlName="apellido" />
           </div>
-          <div class="field">
-            <label class="label" for="dni">DNI</label>
-            <div class="control">
-              <input
-                type="text"
-                name="dni"
-                class="input"
-                formControlName="dni"
-              />
-            </div>
+        </div>
+        <div class="field">
+          <label class="label" for="dni">DNI</label>
+          <div class="control">
+            <input type="text" name="dni" class="input" formControlName="dni" />
           </div>
-          <div class="field">
-            <label class="label" for="telefono">Telefono</label>
-            <div class="control">
-              <input
-                type="text"
-                name="telefono"
-                class="input"
-                formControlName="telefono"
-              />
-            </div>
+        </div>
+        <div class="field">
+          <label class="label" for="telefono">Telefono</label>
+          <div class="control">
+            <input type="text" name="telefono" class="input" formControlName="telefono" />
           </div>
-          <div class="field">
-            <label class="label" for="email">Correo</label>
-            <div class="control">
-              <input
-                type="text"
-                name="email"
-                class="input"
-                formControlName="email"
-              />
-            </div>
+        </div>
+        <div class="field">
+          <label class="label" for="email">Correo</label>
+          <div class="control">
+            <input type="text" name="email" class="input" formControlName="email" />
           </div>
-          <div class="field">
-            <label class="label" for="username">Usuario</label>
-            <div class="control">
-              <input
-                type="text"
-                name="username"
-                class="input"
-                formControlName="username"
-              />
-            </div>
-          </div>          
+        </div>
+        <div class="field">
+          <label class="label" for="username">Usuario</label>
+          <div class="control">
+            <input type="text" name="username" class="input" formControlName="username" />
+          </div>
+        </div>
         <div class="field">
           <label class="label" for="password">Password</label>
           <div class="control">
-            <input
-              type="password"
-              name="password"
-              class="input"
-              formControlName="password"
-            />
+            <input type="password" name="password" class="input" formControlName="password" />
           </div>
         </div>
-  
+
         <ng-container *ngIf="isError$ | async as errorMessage">
           <p class="error-form">{{ errorMessage }}</p>
         </ng-container>
@@ -90,7 +56,7 @@
         <ng-container *ngIf="isMessage$ | async as responseMessage">
           <p class="error-form">{{ responseMessage }}</p>
         </ng-container>
-  
+
         <button [disabled]="!isLoading$ || newUserForm.invalid" type="submit" class="button is-success">
           <ng-container *ngIf="isLoading$ | async; else elseBlock">
             ...Cargando
@@ -101,8 +67,9 @@
     </div>
     <div class="form__footer">
       <p>
-       Ya tienes una cuenta?
+        Ya tienes una cuenta?
         <a [routerLink]="'/auth/login'">Entrar!</a>
       </p>
     </div>
   </div>
+</mat-card>
